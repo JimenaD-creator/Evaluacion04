@@ -1,8 +1,10 @@
 
 #include <iostream>
-#include "UserManager.cpp"
-#include "ContentManager.cpp"
-#include "Graph.cpp"
+#include "UserManager.h"
+#include "ContentManager.h"
+#include "RecommendationSystem.h"
+#include "menu.h"
+#include "Graph.h"
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -12,7 +14,7 @@ void displayMenu(){
     ContentManager content;
     Graph graph;
     UserManager user;
-    //RecommendationSystem recommendations;
+    RecommendationSystem recommendations;
 
     int choiceM,choice;
     int index;
@@ -26,14 +28,16 @@ void displayMenu(){
     while(choiceM!=3){
         cout << "............ BIENVENIDO A AMIGOS.COM ..........."<<endl;
         cout << "1. Iniciar Sesion" <<endl;
-        cout << "2. Crear cuenta (agregar usuario)" <<endl;
-        cout << "3. Salir" <<endl;
+        cout << "2. Crear cuenta (Agregar usuario)" <<endl;
+        cout << "3. Salir" <<endl<<endl;
+        cout << "Seleccione una opcion: "<<endl;
         cin>>choiceM;
 
         if(choiceM==1){
+            cout << endl;
             cout << "Ingrese su usuario" <<endl;
             cin>>usuario;
-            cout << "Ingrese su contraseña" <<endl;
+            cout << "Ingrese su contraseÃ±a" <<endl;
             cin>>contrasenia;
             auto it = find(usuarios.begin(),usuarios.end(),usuario);
 
@@ -73,7 +77,7 @@ void displayMenu(){
                                 content.addContent(category,newContent);
                                 break;
                             case 4:
-                                cout<<"Ingrese la categoria de tu interés (belleza, deportes, educativo, etc)"<<endl;
+                                cout<<"Ingrese la categoria de tu interes (belleza, deportes, educativo, etc)"<<endl;
                                 cin>>category;
                                 contenidoCat = content.getContentByCategory(category);
                                 cout<<"Por categoria encontramos:"<<endl;
@@ -90,11 +94,11 @@ void displayMenu(){
                                 }
                                 break;
                             case 6:
-                                //recomendaciones = recommendations.recommendContent(usuario);
-                                cout<<"Recomendaciones según tus amigos:"<<endl;
-                                //for(int i = 0;i<interesesUser.size();i++){
-                                  //  cout<<interesesUser[i]<<endl;
-                                //}
+                                recomendaciones = recommendations.recommendContent(usuario);
+                                cout<<"Recomendaciones segun tus amigos:"<<endl;
+                                for(int i = 0;i<interesesUser.size();i++){
+                                   cout<<interesesUser[i]<<endl;
+                                }
                                 break;
                             case 7:
                                 cout << "Saliendo del sistema..."<<endl;
@@ -121,7 +125,7 @@ void displayMenu(){
          if(choiceM==2){
             cout << "Ingrese su usuario" <<endl;
             cin>>usuario;
-            cout << "Ingrese su contraseña" <<endl;
+            cout << "Ingrese su contraseÃ±a" <<endl;
             cin>>contrasenia;
             auto it = find(usuarios.begin(),usuarios.end(),usuario);
 
@@ -132,10 +136,15 @@ void displayMenu(){
             }
                 else{
 
-                cout << "El usuario está en uso" <<endl;
+                cout << "El usuario esta en uso" <<endl;
             }
 
 
+            }else{
+                if(choiceM==3){
+                    cout<<endl;
+                    cout<< "Saliendo del sistema..."<<endl;
+                }
             }
 
 

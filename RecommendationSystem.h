@@ -13,11 +13,11 @@ private:
     Graph graph;
 
 public:
-    void addUser(const string& user);
+    void addUser(const string& name);
     void addContent(const string& category, const string& content);
     void addFriend(const string& user1, const string& user2);
-    void addInterest(const string& user, const string& interest);
-    vector<string> recommendContent(const string& user); // Declaración del método
+    void addInterest(const string& name, const string& interest);
+    vector<string> recommendContent(const string& name); // Declaración del método
 };
 
 #endif

@@ -6,8 +6,8 @@
 using namespace std;
 
 
-void RecommendationSystem::addUser(const string& user) {
-    userManager.addUser(user);
+void RecommendationSystem::addUser(const string& name) {
+    userManager.addUser(name);
 }
 
 
@@ -21,8 +21,8 @@ void RecommendationSystem::addFriend(const string& user1, const string& user2) {
 }
 
 
-void RecommendationSystem::addInterest(const string& user, const string& interest) {
-    userManager.addInterest(user, interest);
+void RecommendationSystem::addInterest(const string& name, const string& interest) {
+    userManager.addInterest(name, interest);
 }
 
 

@@ -16,7 +16,7 @@ public:
     void addEdge(const string& user, const string& user2);
 
 
-    void BFS(const string& user);
+    vector<string> BFS(const string& user);
 };
 
 

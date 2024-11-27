@@ -8,10 +8,11 @@
     }
 
 
-void Graph::BFS(const string& user){
+vector <string> Graph::BFS(const string& user){
+        vector<string>friends;
         if (Lista.find(user) == Lista.end()) {
-            cout << "Usuario " << user << " NO ENCONTRADO" << endl;
-            return;
+            cout << "Usuario " << user << " no encontrado " << endl;
+            return friends;
         }
 
         unordered_map<string, bool> visited;
@@ -28,10 +29,10 @@ void Graph::BFS(const string& user){
             for (const string& nombre : Lista[current]) {
                 if (!visited[nombre]) {
                     visited[nombre] = true;
-                    toVisit.push(nombre);
+                    Visitar.push(nombre);
                     cout << nombre << " ";
                 }
             }
         }
-        cout << endl;
+        return friends;
     }
