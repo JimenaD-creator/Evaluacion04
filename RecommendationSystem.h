@@ -1,10 +1,8 @@
 #ifndef RECOMMENDATIONSYSTEM_H
 #define RECOMMENDATIONSYSTEM_H
+#include "UserManager.h"
 #include "ContentManager.h"
 #include "Graph.h"
-#include "UserManager.h"
-
-
 
 using namespace std;
 

@@ -1,3 +1,7 @@
+
+#ifndef USERMANAGER_H
+#define USERMANAGER_H
+
 #include <iostream>
 #include <unordered_map>
 #include <string>
@@ -16,3 +20,5 @@ class UserManager{
     vector <string> getInterests(string& name);
 
 };
+
+#endif // USERMANAGER_H
