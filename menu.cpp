@@ -3,7 +3,7 @@
 #include "UserManager.h"
 #include "ContentManager.h"
 #include "Graph.h"
-#include "RecommendationSystem"
+#include "RecommendationSystem.h"
 using namespace std;
 
 void displayMenu(){
