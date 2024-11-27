@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include "UserManager.h"
 #include "ContentManager.h"
@@ -48,6 +49,3 @@ void displayMenu(){
     
 
 }
-
-    
-    
