@@ -1,18 +1,24 @@
 #ifndef GRAPH_H
 #define GRAPH_H
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+#include <queue>
+#include <string>
+using namespace std;
+
+class Graph {
+public:
+
+    unordered_map<string, vector<string>> Lista;
 
 
-class Graph
-{
-    public:
-       vector<vector<int>> addEdge(string user1,string user2,vector<vector<int>> matrix, vector<vector<string>> users);
-       
-       void BFS(string user,vector<vector<int>> matrix, vector<vector<string>> users);
-       
+    void addEdge(const string& user, const string& user2);
 
-    protected:
 
-    private:
+    void BFS(const string& user);
 };
+
+
 
 #endif // GRAPH_H
