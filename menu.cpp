@@ -1,8 +1,8 @@
 #include <iostream>
 #include "UserManager.h"
-//#include "ContentManager.h"
-//#include "Graph.h"
-//#include "RecommendationSystem"
+#include "ContentManager.h"
+#include "Graph.h"
+#include "RecommendationSystem"
 using namespace std;
 
 void displayMenu(){
@@ -14,28 +14,29 @@ void displayMenu(){
         cout << "3. Agregar interes a un usuario" <<endl;
         cout << "4. Ver recomendaciones" <<endl;
         cout << "5. Agregar usuario" <<endl;
-        cout << "Salir" <<endl<<endl;
+        cout << "6. Salir" <<endl<<endl;
 
         cout <<"Seleccione una opcion: ";
         cin >> choice;
 
         switch(choice){
             case 1:
-                //addFriend();
+                addFriend();
                 break;
             case 2:
-                //addContent();
+                addContent();
                 break;
             case 3:
-                //addInterest();
+                addInterest();
                 break;
             case 4:
-                //getRecommendations();
+                getRecommendations();
                 break;
             case 5:
-                cout << "Saliendo del sistema..."<<endl;
+                addUser();
                 break;
             case 6:
+                cout << "Saliendo del sistema..."<<endl;
                 break;
             default:
                 cout << "Opcion no valida"<<endl;
