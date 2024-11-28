@@ -13,7 +13,7 @@ void displayMenu(){
     ContentManager content;
     Graph graph;
     UserManager user;
-    RecommendationSystem recommendations;
+    //RecommendationSystem recommendations;
 
     int choiceM,choice;
     int index;
@@ -21,12 +21,13 @@ void displayMenu(){
     string category,newContent, interest, user2,usuario,contrasenia;
     vector<string> contrasenias;
     vector<string> usuarios;
-    vector<string> recomendaciones;
+    //vector<string> recomendaciones;
     vector<string> contenidoCat;
     vector<string> interesesUser;
     vector<string> friends;
     choiceM = 0;
     while(choiceM!=3){
+        cout<<endl;
         cout << "............ BIENVENIDO A AMIGOS.COM ..........."<<endl;
         cout << "1. Iniciar Sesion" <<endl;
         cout << "2. Crear cuenta (Agregar usuario)" <<endl;
@@ -38,7 +39,7 @@ void displayMenu(){
             cout << endl;
             cout << "Ingrese su usuario" <<endl;
             cin>>usuario;
-            cout << "Ingrese su contraseña" <<endl;
+            cout << "Ingrese su contrasena" <<endl;
             cin>>contrasenia;
             auto it = find(usuarios.begin(),usuarios.end(),usuario);
 
@@ -47,15 +48,16 @@ void displayMenu(){
             if(contrasenia == contrasenias[index]){
                     choice = 0;
                     while(choice != 8){
+                        cout<<endl;
                         cout << "............ MENU ..........."<<endl;
                         cout << "1. Crear amistad" <<endl;
                         cout << "2. Agregar interes a mi perfil" <<endl;
                         cout << "3. Agregar contenido" <<endl;
                         cout<<  "4. Ver contenido por categoria"<<endl;
                         cout << "5. Ver mis intereses" <<endl;
-                        cout<<  "6. Ver recomendaciones"<<endl;
-                        cout<<  "7. Ver amigos"<<endl;
-                        cout << "8. Salir" <<endl<<endl;
+                        //cout<<  "6. Ver recomendaciones"<<endl;
+                        cout<<  "6. Ver amigos"<<endl;
+                        cout << "7. Salir" <<endl<<endl;
 
                         cout <<"Seleccione una opcion: ";
                         cin >> choice;
@@ -80,19 +82,24 @@ void displayMenu(){
                                 user.addInterest(usuario,interest);
                                 break;
                             case 3:
-                                cout<<"Ingrese el contenido que deseas agregar"<<endl;
-                                cin>>newContent;
                                 cout<<"Ingrese su categoria (belleza, deportes, educativo, etc)"<<endl;
                                 cin>>category;
+                                cout<<"Ingrese el contenido que deseas agregar"<<endl;
+                                cin>>newContent;
                                 content.addContent(category,newContent);
                                 break;
                             case 4:
-                                cout<<"Ingrese la categoria de tu interes (belleza, deportes, educativo, etc)"<<endl;
+                                cout<<"Ingrese la categoria de su interes (belleza, deportes, educativo, etc)"<<endl;
                                 cin>>category;
                                 contenidoCat = content.getContentByCategory(category);
-                                cout<<"Por categoria encontramos:"<<endl;
-                                for(int i = 0;i<contenidoCat.size();i++){
-                                    cout<<contenidoCat[i]<<endl;
+
+                                if (contenidoCat.empty()) {
+                                    cout << "No se encontró contenido para la categoría '" << category << "'." << endl;
+                                } else {
+                                    cout << "Por categoría encontramos:" << endl;
+                                    for (int i = 0; i < contenidoCat.size(); i++) {
+                                        cout << contenidoCat[i] << endl;
+                                    }
                                 }
 
                                 break;
@@ -103,24 +110,21 @@ void displayMenu(){
                                     cout<<interesesUser[i]<<endl;
                                 }
                                 break;
-                            case 6:
-                                friends = graph.BFS(usuario);
+                            //case 6:
+                                /*friends = graph.BFS(usuario);
                                 cout<<"friends "<< friends.size()<<endl;
                                 recomendaciones = recommendations.recommendContent(friends); //ESTA SECCION NO FUNCIONA, NO ENCUENTRA LOS USUARIOS EN USERS
                                 cout<<"Recomendaciones segun tus amigos:"<<endl;
                                 for(int i = 0;i<recomendaciones.size();i++){
                                    cout<<recomendaciones[i]<<endl;
-                                }
-                                break;
-                            case 7:
-                                cout<<"Tus amigos:"<<endl;
+                                }*/
+                                //break;
+                            case 6:
                                 graph.BFS(usuario);
                                 break;
-                                case 8:
+
+                            case 7:
                                 cout << "Saliendo del sistema..."<<endl;
-                                break;
-                            default:
-                                cout << "Opcion no valida"<<endl;
                                 break;
                         }
 
@@ -139,9 +143,10 @@ void displayMenu(){
 
 
          if(choiceM==2){
+            cout<<endl;
             cout << "Ingrese su usuario" <<endl;
             cin>>usuario;
-            cout << "Ingrese su contraseña" <<endl;
+            cout << "Ingrese su contrasena" <<endl;
             cin>>contrasenia;
             auto it = find(usuarios.begin(),usuarios.end(),usuario);
 
@@ -152,14 +157,14 @@ void displayMenu(){
             }
                 else{
 
-                cout << "El usuario esta en uso" <<endl;
+                cout << "El usuario esta en uso" <<endl<<endl;
             }
 
 
             }else{
                 if(choiceM==3){
                     cout<<endl;
-                    cout<< "Saliendo del sistema..."<<endl;
+                    cout<< "Saliendo del sistema..."<<endl<<endl;
                 }
             }
 
