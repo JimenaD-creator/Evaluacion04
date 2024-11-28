@@ -28,7 +28,7 @@ void RecommendationSystem::addInterest(const string& name, const string& interes
 
 vector<string> RecommendationSystem::recommendContent(vector<string> friends) {
 
-    cout << "Número de amigos: " << friends.size() << endl;
+    cout << "Numero de amigos: " << friends.size() << endl;
 
 
     unordered_set<string> friendsInterests;
@@ -57,7 +57,7 @@ vector<string> RecommendationSystem::recommendContent(vector<string> friends) {
     for (const string& interest : friendsInterests) {
 
         vector<string> contents = contentManager.getContentByCategory(interest);
-        cout << "Contenido para el interés " << interest << ": ";
+        cout << "Contenido para el interes " << interest << ": ";
         for (const string& content : contents) {
             cout << content << " ";
         }

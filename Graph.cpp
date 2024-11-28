@@ -20,7 +20,7 @@ vector <string> Graph::BFS(const string& user){
         visited[user] = true;
         Visitar.push(user);
 
-        cout << "AMIGOS DE " << user << ": "<<endl;
+        cout << "Amigos de " << user << ": "<<endl;
         while (!Visitar.empty()) {
             string current = Visitar.front();
             Visitar.pop();
@@ -30,7 +30,7 @@ vector <string> Graph::BFS(const string& user){
                 if (!visited[nombre]) {
                     visited[nombre] = true;
                     Visitar.push(nombre);
-                    cout << nombre << " ";
+                    cout << nombre << " "<<endl;
                     friends.push_back(nombre);
                 }
             }
