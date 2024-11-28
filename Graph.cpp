@@ -31,6 +31,7 @@ vector <string> Graph::BFS(const string& user){
                     visited[nombre] = true;
                     Visitar.push(nombre);
                     cout << nombre << " ";
+                    friends.push_back(nombre);
                 }
             }
         }

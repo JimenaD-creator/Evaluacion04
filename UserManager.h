@@ -18,6 +18,9 @@ class UserManager{
     void addUser(const string& name);
     void addInterest(const string &name, const string& interest);
     vector <string> getInterests(const string& name);
+    bool userExists(const string& user);
+
+
 
 };
 

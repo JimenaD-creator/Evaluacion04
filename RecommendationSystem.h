@@ -17,7 +17,7 @@ public:
     void addContent(const string& category, const string& content);
     void addFriend(const string& user1, const string& user2);
     void addInterest(const string& name, const string& interest);
-    vector<string> recommendContent(const string& name); // Declaración del método
+    vector<string> recommendContent(vector<string> friends); // Declaración del método
 };
 
 #endif
