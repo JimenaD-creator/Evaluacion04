@@ -42,12 +42,13 @@ void displayMenu(){
             cout << "Ingrese su contrasena" <<endl;
             cin>>contrasenia;
             auto it = find(usuarios.begin(),usuarios.end(),usuario);
+            auto it_1 = find(contrasenias.begin(), contrasenias.end(), contrasenia);
 
-            if (it != usuarios.end()) {
+            if (it != usuarios.end() || it_1 != contrasenias.end()) {
             int index = distance(usuarios.begin(), it);
             if(contrasenia == contrasenias[index]){
                     choice = 0;
-                    while(choice != 8){
+                    while(choice != 7){
                         cout<<endl;
                         cout << "............ MENU ..........."<<endl;
                         cout << "1. Crear amistad" <<endl;
@@ -94,9 +95,9 @@ void displayMenu(){
                                 contenidoCat = content.getContentByCategory(category);
 
                                 if (contenidoCat.empty()) {
-                                    cout << "No se encontró contenido para la categoría '" << category << "'." << endl;
+                                    cout << "No se encontro contenido para la categoria '" << category << "'." << endl;
                                 } else {
-                                    cout << "Por categoría encontramos:" << endl;
+                                    cout << "Por categoria encontramos:" << endl;
                                     for (int i = 0; i < contenidoCat.size(); i++) {
                                         cout << contenidoCat[i] << endl;
                                     }
@@ -123,7 +124,7 @@ void displayMenu(){
                                 graph.BFS(usuario);
                                 break;
 
-                            case 7:
+                            default:
                                 cout << "Saliendo del sistema..."<<endl;
                                 break;
                         }
@@ -134,11 +135,13 @@ void displayMenu(){
 
 
         }
-        }
-         if(it == usuarios.end()){
+        }else{
+            if(it == usuarios.end() || it_1 == contrasenias.end()){
                 cout<<"Los datos no coinciden"<<endl;
 
             }
+        }
+         
         }
 
 
