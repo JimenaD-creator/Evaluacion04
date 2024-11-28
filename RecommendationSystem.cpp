@@ -6,8 +6,8 @@
 using namespace std;
 
 
-void RecommendationSystem::addUser(const string& user) {
-    userManager.addUser(user);
+void RecommendationSystem::addUser(const string& name) {
+    userManager.addUser(name);
 }
 
 
@@ -21,29 +21,48 @@ void RecommendationSystem::addFriend(const string& user1, const string& user2) {
 }
 
 
-void RecommendationSystem::addInterest(const string& user, const string& interest) {
-    userManager.addInterest(user, interest);
+void RecommendationSystem::addInterest(const string& name, const string& interest) {
+    userManager.addInterest(name, interest);
 }
 
 
-vector<string> RecommendationSystem::recommendContent(const string& user) {
+vector<string> RecommendationSystem::recommendContent(vector<string> friends) {
 
-    vector<string> friends = graph.BFS(user);
+    cout << "Número de amigos: " << friends.size() << endl;
 
 
     unordered_set<string> friendsInterests;
 
     for (const string& friendUser : friends) {
+
+        if (!userManager.userExists(friendUser)) {
+            cout << "Usuario no encontrado: " << friendUser << endl;
+            continue;
+        }
+
+
         vector<string> interests = userManager.getInterests(friendUser);
+        cout << "Intereses del usuario " << friendUser << ": ";
+        for (const string& interest : interests) {
+            cout << interest << " ";
+        }
+        cout << endl;
+
         friendsInterests.insert(interests.begin(), interests.end());
     }
 
 
     unordered_set<string> recommendedContent;
 
-
     for (const string& interest : friendsInterests) {
+
         vector<string> contents = contentManager.getContentByCategory(interest);
+        cout << "Contenido para el interés " << interest << ": ";
+        for (const string& content : contents) {
+            cout << content << " ";
+        }
+        cout << endl;
+
         recommendedContent.insert(contents.begin(), contents.end());
     }
 

@@ -3,13 +3,22 @@
 #include <stdexcept>
 using namespace std;
 
-void UserManager::addUser(string& name){
-    if(userInterests.find(name) == userInterests.end()){
-        userInterests[name] = unordered_set<string>();
-    }
+bool UserManager::userExists(const string& user) {
+
+    return userInterests.find(user) != userInterests.end();
 }
 
-void UserManager::addInterest(string& name, string& interest){
+void UserManager::addUser(const string& name){
+    if (userExists(name)) {
+        cout << "El usuario " << name << " ya existe." << endl;
+        return;
+    }
+    userInterests[name] = unordered_set<string>(); // Agregar usuario vacío inicialmente
+    cout << "Usuario " << name << " agregado correctamente." << endl;
+}
+
+
+void UserManager::addInterest(const string& name, const string& interest){
     auto it = userInterests.find(name);
     if(it == userInterests.end()){
         throw invalid_argument("Usuario no encontrado");
@@ -17,7 +26,7 @@ void UserManager::addInterest(string& name, string& interest){
     }
     it -> second.insert(interest);
 }
-vector <string> UserManager::getInterests(string& name){
+vector <string> UserManager::getInterests(const string& name){
     auto it = userInterests.find(name);
     if(it == userInterests.end()){
         throw invalid_argument("Usuario no encontrado");
